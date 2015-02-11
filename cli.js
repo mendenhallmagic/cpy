@@ -17,4 +17,7 @@ var cli = meow({
 	string: ['_']
 });
 
-cpy([cli.input[0]], cli.input[1], {overwrite: cli.flags.overwrite});
+cpy([cli.input[0]], cli.input[1], {
+	cwd: cli.flags.cwd || '.',
+	overwrite: cli.flags.overwrite,
+});
